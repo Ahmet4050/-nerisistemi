@@ -6,7 +6,7 @@ exports.run = async(client, message, args) => {
 	   if (!message.member.hasPermission('MANAGE_GUILD')) return  message.channel.send(new Discord.RichEmbed().setDescription('Bu komutu kullanabilmek için `Sunucuyu yönet` iznine sahip olmalısın!!'))
   if(args[0] === "0" || args[0] === "sıfırla") {
  await db.delete(`önerikanal_${message.guild.id}`)
-    message.reply(new Discord.RichEmbed().setDescriptio('Başarıyla öneri kanal sıfırlandı!'))
+    message.channel.send(new Discord.RichEmbed().setDescription('Başarıyla öneri kanal sıfırlandı!'))
     return
   }
     const kanal = message.mentions.channels.first() || args.slice(0).join('')
